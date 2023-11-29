@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { UserModel, userValid, loginValid, createToken } = require("../models/userModel");
 const { auth } = require("../middlewares/auth");
+const { config } = require("../config/secret");
+
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -89,12 +91,9 @@ router.get("/myInfo", async (req, res) => {
   // וגם עובד בבקשת גט לעומת באדי שלא עובד
   // req.query, req.params, req.body, req.header
   let token = req.header("x-api-key");
-  if (!token) {
-    return res.status(401).json({ msg: "You need to send token to this endpoint url" })
-  }
   try {
     // מנסה לפענח את הטוקן ויכיל את כל המטען/מידע שבתוכו
-    let tokenData = jwt.verify(token, "MaorSecret");
+    let tokenData = jwt.verify(token, config.token);
     console.log(tokenData);
 
 
