@@ -15,7 +15,7 @@ const doApi = async() => {
     }
   })
   console.log(resp.data);
-  if(resp.data.id){
+  if(resp.data._id){
     let item = resp.data;
     document.querySelector("#id_name").innerHTML = item.name;
     document.querySelector("#id_email").innerHTML = item.email;
