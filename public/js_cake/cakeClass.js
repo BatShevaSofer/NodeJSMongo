@@ -30,7 +30,7 @@ export default class CakeClass{
   }
 
   async delCake(){
-    let url = "http://localhost:3000/cakes/"+this.id;
+    let url = "https://test-5zy4.onrender.com/cakes/"+this.id;
     try{
       let resp =  await axios({
         url:url,

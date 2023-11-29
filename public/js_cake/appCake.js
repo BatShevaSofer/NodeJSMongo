@@ -8,7 +8,7 @@ const init = () => {
 }
 
 const doApi = async() => {
-  let url = "http://localhost:3000/cakes?perPage=8&reverse=yes";
+  let url = "https://test-5zy4.onrender.com/cakes?perPage=8&reverse=yes";
   try{
     let resp = await axios.get(url);
     console.log(resp);

@@ -18,7 +18,7 @@ export const decalreFormEvent = (_doApi) => {
 
 // סקשת פוסט ליצירת רשומה חדשה
 const addNewCake = async (_bodyData, _doApi) => {
-  let myUrl = "http://localhost:3000/cakes";
+  let myUrl = "https://test-5zy4.onrender.com/cakes";
   try {
     let resp = await axios({
       url: myUrl,
