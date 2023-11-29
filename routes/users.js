@@ -93,7 +93,7 @@ router.get("/myInfo", async (req, res) => {
   let token = req.header("x-api-key");
   try {
     // מנסה לפענח את הטוקן ויכיל את כל המטען/מידע שבתוכו
-    let tokenData = jwt.verify(token, config.token);
+    let tokenData = jwt.verify(token, config.tokenSecret);
     console.log(tokenData);
 
 

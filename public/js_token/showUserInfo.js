@@ -10,8 +10,8 @@ const doApi = async() => {
     method:"GET",
     // בהידר אני מוסף את הקיי של הטוקן מהלוקאל
     headers:{
-      "x-api-key": localStorage["tok"], 
-      'content-type': "application/json"
+      'content-type': "application/json",
+      "x-api-key": localStorage["tok"]
     }
   })
   console.log(resp.data);
