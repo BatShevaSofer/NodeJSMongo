@@ -65,7 +65,7 @@ router.post("/login", async (req, res) => {
     if (!user) {
       // שגיאת אבטחה שנשלחה מצד לקוח
       return res.status(401).json({ msg: "User and password not match code 1 " })
-    }
+    }//123456
     // בדיקה הסימא אם מה שנמצא בבאדי מתאים לסיסמא המוצפנת במסד
     let validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) {
