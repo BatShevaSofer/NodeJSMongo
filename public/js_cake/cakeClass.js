@@ -37,7 +37,7 @@ export default class CakeClass{
         method:"DELETE",
         headers:{
           'content-type': "application/json",
-          'x-api-key':"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjUxMmQyZmY5N2NlNjUwYjVmMTk2MSIsImlhdCI6MTcwMTEyNDY3MywiZXhwIjoxNzAxMTI4MjczfQ.UjIIMODiqff2zoYPG8hSASoygS1YDVj1SQjJsdbtQP8"
+          'x-api-key':"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2NmZkZGMyZjc1ODE5ODkwNjYxZDE3IiwiX3JvbGUiOiJhZG1pbiIsImlhdCI6MTcwMTI0ODU3MiwiZXhwIjoxNzAxMjUyMTcyfQ.0Jlmtlv087Kq8wXo9hZj19_WXN4_KwXf71kTVm2RFms"
         }
       })
       if(resp.data.deletedCount == 1){
