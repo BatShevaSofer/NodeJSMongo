@@ -36,6 +36,6 @@ exports.loginValid = (_bodyValid) => {
 
 
 exports.createToken = (user_id, _role) => {
-  let token = jwt.sign({_id, role},config.tokenSecret , {expiresIn: "60mins"});
+  let token = jwt.sign({user_id, _role},config.tokenSecret , {expiresIn: "60mins"});
   return token;
 }
