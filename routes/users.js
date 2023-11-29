@@ -101,7 +101,7 @@ router.get("/myInfo", async (req, res) => {
     // {password:0} -> יציג את כל המאפיינים חוץ מהסיסמא ואם זה 1
     // דווקא יציג רק אותו ולא יציג אחרים
     // 
-    let user = await UserModel.findOne({ _id: tokenData._id },
+    let user = await UserModel.findOne({ _id: tokenData.id },
       { password: 0 });
     // אומר לא להציג את הסיסמא מתוך המאפיינים
     res.json(user);
