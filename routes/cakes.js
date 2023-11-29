@@ -40,6 +40,21 @@ router.post("/", auth, async (req, res) => {
         res.status(500).json({ msg: "err", err })
     }
 })
+router.get("/search", async (req, res) => {
+    try {
+        let queryS = req.query.s;
+        // מביא את החיפוש בתור ביטוי ולא צריך את כל הביטוי עצמו לחיפוש
+        // i -> מבטל את כל מה שקשור ל CASE SENSITVE
+        let searchReg = new RegExp(queryS, "i")
+        let data = await CakeModel.find({ name: searchReg })
+            .limit(50)
+        res.json(data);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({ msg: "there error try again later", err })
+    }
+})
 
 router.put("/:idEdit", auth, async (req, res) => {
     let valdiateBody = cakeValid(req.body);
@@ -48,15 +63,12 @@ router.put("/:idEdit", auth, async (req, res) => {
     }
     let token = req.header("x-api-key");
     let idEdit = req.params.idEdit;
-    if (!token) {
-        return res.status(401).json({ msg: "You need to send token to this endpoint url" })
-    }
     try {
         let tokenData = jwt.verify(token, "BatShevaSecret");
         let data = await CakeModel.findOne({ _id: idEdit });
-        if(data.user_id != tokenData.id){
+        if (data.user_id != tokenData.id) {
             console.log("Error updating, it's not your cake!");
-            res.status(555).json({ msg: "Error updating, it's not your cake!"})
+            res.status(555).json({ msg: "Error updating, it's not your cake!" })
             return;
         }
         let data1 = await CakeModel.updateOne({ _id: idEdit, user_id: tokenData.id }, req.body)
@@ -65,7 +77,7 @@ router.put("/:idEdit", auth, async (req, res) => {
         //     res.status(401).json({ msg: "Error updating, There is not this cakes...", err })
         //     return;
         // }
-        
+
         res.json(data1);
     }
     catch (err) {
