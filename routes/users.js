@@ -73,7 +73,7 @@ router.post("/login", async (req, res) => {
     }
     // בשיעור הבא נדאג לשלוח טוקן למשתמש שיעזור לזהות אותו 
     // לאחר מכן לראוטרים מסויימים
-    let newToken = createToken(user._id);
+    let newToken = createToken(user._id, user.role);
     res.json({ token: newToken });
   }
   catch (err) {
