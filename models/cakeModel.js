@@ -5,7 +5,14 @@ const cakeSchema = new mongoose.Schema({
   name: String,
   cals: Number,
   price: Number,
-  user_id: String
+  user_id: String,
+  img: String,
+  date_created: {
+    type: Date, default: Date.now()
+  },
+  category_id:{
+    type:String,default:"1"
+  }
 })
 exports.CakeModel = mongoose.model("cakes", cakeSchema);
 
